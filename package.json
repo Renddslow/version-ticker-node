@@ -1,0 +1,18 @@
+{
+  "name": "version-ticker-node",
+  "version": "1.0.0",
+  "description": "A simple ticker app that gets the latest version of a list of npm modules",
+  "main": "src/index.js",
+  "repository": "https://github.com/Renddslow/version-ticker-node.js",
+  "author": "Matt McElwee <mubatt@wyopub.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "dependencies": {
+    "catchify": "^2.6.1",
+    "commander": "^2.19.0",
+    "express": "^4.16.4",
+    "got": "^9.5.0",
+    "lodash": "^4.17.11",
+    "npm-cli-login": "^0.0.10",
+    "promptly": "^3.0.3"
+  }
+}
