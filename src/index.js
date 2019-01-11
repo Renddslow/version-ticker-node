@@ -1,7 +1,4 @@
-const http = require('http');
-
 const commander = require('commander');
-const express = require('express');
 
 const getModules = require('./controllers/getModules');
 const getModuleVersions = require('./controllers/getModuleVersions');
@@ -11,23 +8,19 @@ commander
   .option('-f --filename [filename]', 'Path to the watcher manifest')
   .option('-u --username [username]', 'Your npm username')
   .option('-p --password [password]', 'Your npm password')
-  .option('[port]', 'The port you want to run the server on')
+  .option('--interval [interval]', 'The interval in seconds at which the versions should be fetched')
   .parse(process.argv);
 
 const main = async () => {
   await getModules(commander);
 
-  const app = express();
-  const server = http.createServer(app);
+  setTimeout(getVersions, 0);
 
-  app.get('/', async (req, res) => {
+  async function getVersions() {
     await getModuleVersions();
-    res.end();
-  });
 
-  const PORT = commander.port || 8080;
-
-  server.listen(PORT, () => console.log(`Running version-ticker on port ${PORT}`));
+    setTimeout(getVersions, (parseInt(commander.interval, 10) || 120) * 1000);
+  }
 };
 
 main();

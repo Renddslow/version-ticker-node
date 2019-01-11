@@ -1,5 +1,5 @@
 {
-  "name": "version-ticker-node",
+  "name": "version-ticker",
   "version": "1.0.0",
   "description": "A simple ticker app that gets the latest version of a list of npm modules",
   "main": "src/index.js",
@@ -9,7 +9,6 @@
   "dependencies": {
     "catchify": "^2.6.1",
     "commander": "^2.19.0",
-    "express": "^4.16.4",
     "got": "^9.5.0",
     "lodash": "^4.17.11",
     "npm-cli-login": "^0.0.10",
