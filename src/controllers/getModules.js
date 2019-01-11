@@ -8,7 +8,7 @@ const { getFile, writeFile } = require('./files');
 
 module.exports = async (program) => {
   let auth = program.username &&
-    `${program.username}:${await promptly.prompt('npm password :', { silent: true })}`;
+    `${program.username}:${program.password || await promptly.prompt('npm password :', { silent: true })}`;
 
   const filepath = program.filename || path.join(process.cwd(), 'manifest.json');
   const [err, manifest] = await catchify(getFile(filepath).then(JSON.parse));

@@ -10,6 +10,7 @@ commander
   .version(require('../package').version)
   .option('-f --filename [filename]', 'Path to the watcher manifest')
   .option('-u --username [username]', 'Your npm username')
+  .option('-p --password [password]', 'Your npm password')
   .option('[port]', 'The port you want to run the server on')
   .parse(process.argv);
 
